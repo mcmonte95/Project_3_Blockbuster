@@ -2,7 +2,7 @@
 
 ## Group Members
 - Michael Chiaramonte
-- Liam ODonovan
+- Liam O'Donovan
 - Kaelan Purcell
 - Eric Green
 
@@ -14,4 +14,11 @@ This project focuses on exploring the data from Blockbuster, specifically the ge
 2. **Database Creation:** Develop a SQL database to manage and store the parsed data efficiently.
 3. **API Development:** Implement a Flask API that interfaces with the SQL database, facilitating data transfer to the frontend.
 4. **Frontend Development:** Design and build the frontend using JavaScript, HTML, and CSS. This includes developing the map visualization and the scrollbar mechanism for temporal navigation.
+
+    ### Possible Leaflet Plugins for Mapview
+    - **Leaflet.markercluster**: For managing and clustering multiple markers.
+    - **Leaflet.timeline**: To add temporal controls and animate the map based on time data.
+    - **Leaflet.heat**: To create heat map layers showing density/intensity of store locations.
+    - **Leaflet Control Geocoder**: For adding geocoding capabilities to the map.
+    - **Leaflet.draw**: Allows users to draw shapes or markers on the map for interactive features.
 
