@@ -2,7 +2,7 @@
 
 ## Group Members
 - Michael Chiaramonte
-- Liam O'Donovan
+- Liam ODonovan
 - Kaelan Purcell
 - Eric Green
 
