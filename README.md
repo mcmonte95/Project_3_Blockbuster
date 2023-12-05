@@ -11,6 +11,7 @@ This project focuses on exploring the data from Blockbuster, specifically the ge
 
 ## Project Tasks
 1. **Data Sourcing and Parsing:** Identify and procure a relevant data source for Blockbuster store locations. Extract and process the data for further use.
+    - **Potential Data Source:** [Reddit Thread on Blockbuster Store Locations](https://www.reddit.com/r/dataisbeautiful/comments/hdrnfw/comment/fvmrfkt/)
 2. **Database Creation:** Develop a SQL database to manage and store the parsed data efficiently.
 3. **API Development:** Implement a Flask API that interfaces with the SQL database, facilitating data transfer to the frontend.
 4. **Frontend Development:** Design and build the frontend using JavaScript, HTML, and CSS. This includes developing the map visualization and the scrollbar mechanism for temporal navigation.
