@@ -11,7 +11,11 @@ This project is dedicated to mapping and visualizing geostationary satellite dat
 
 ## Project Tasks
 1. **Data Sourcing and Parsing:** Source geostationary satellite data from NASA's API. Process and refine the data for visualization purposes.
-    - **Data Source:** 
+    - **Data Source:** sscsw.py Package for accessing the NASA's Satellite Situation Center (SSC) web services https://sscweb.gsfc.nasa.gov/WebServices/REST/ (SSCSW.py)
+    - **SSCSW.py Documentation**:
+        - https://sscweb.gsfc.nasa.gov/WebServices/REST/py/sscws/index.html
+        - https://pypi.org/project/sscws/
+      
 2. **Database Creation:** Develop a SQL database to store and manage the satellite data effectively.
 3. **API Development:** Create a Flask API to interface with the SQL database, ensuring smooth data retrieval and handling for the frontend.
 4. **Frontend Development:** Design and implement the frontend using JavaScript (with WebGL or Three.js for 3D rendering), HTML, and CSS. This includes the development of the 3D interactive globe and the mechanisms to display satellite positions and distances from Earth.
