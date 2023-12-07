@@ -1,4 +1,4 @@
-# Blockbuster Through the Years
+# Geostationary Satellite Visualization Project
 
 ## Group Members
 - Michael Chiaramonte
@@ -7,19 +7,20 @@
 - Eric Green
 
 ## Description
-This project focuses on exploring the data from Blockbuster, specifically the geographical locations of Blockbuster stores from their inception to their closure. Our goal is to create an interactive map visualization of the continental United States. This map will feature a scrollbar mechanism to display the latitude and longitude of each store throughout the years. As users scroll through time, they will observe the visualization of stores popping up during their opening years and then disappearing as they began closing, providing a dynamic view of Blockbuster's presence and decline over the years.
+This project is dedicated to mapping and visualizing geostationary satellite data, leveraging NASA's API. Our objective is to create an interactive 3D globe visualization that dynamically displays the positions of geostationary satellites and their respective distances from Earth. The visualization will allow users to see the spatial distribution of these satellites, offering insights into global satellite coverage and space utilization.
 
 ## Project Tasks
-1. **Data Sourcing and Parsing:** Identify and procure a relevant data source for Blockbuster store locations. Extract and process the data for further use.
-    - **Potential Data Source:** [Reddit Thread on Blockbuster Store Locations](https://www.reddit.com/r/dataisbeautiful/comments/hdrnfw/comment/fvmrfkt/)
-2. **Database Creation:** Develop a SQL database to manage and store the parsed data efficiently.
-3. **API Development:** Implement a Flask API that interfaces with the SQL database, facilitating data transfer to the frontend.
-4. **Frontend Development:** Design and build the frontend using JavaScript, HTML, and CSS. This includes developing the map visualization and the scrollbar mechanism for temporal navigation.
+1. **Data Sourcing and Parsing:** Source geostationary satellite data from NASA's API. Process and refine the data for visualization purposes.
+    - **Data Source:** 
+2. **Database Creation:** Develop a SQL database to store and manage the satellite data effectively.
+3. **API Development:** Create a Flask API to interface with the SQL database, ensuring smooth data retrieval and handling for the frontend.
+4. **Frontend Development:** Design and implement the frontend using JavaScript (with WebGL or Three.js for 3D rendering), HTML, and CSS. This includes the development of the 3D interactive globe and the mechanisms to display satellite positions and distances from Earth.
 
-    ### Possible Leaflet Plugins for Mapview
-    - **Leaflet.markercluster**: For managing and clustering multiple markers.
-    - **Leaflet.timeline**: To add temporal controls and animate the map based on time data.
-    - **Leaflet.heat**: To create heat map layers showing density/intensity of store locations.
-    - **Leaflet Control Geocoder**: For adding geocoding capabilities to the map.
-    - **Leaflet.draw**: Allows users to draw shapes or markers on the map for interactive features.
+    ### Recommended Libraries for 3D Globe Visualization
+    - **Three.js**: For creating and manipulating the 3D globe.
+    - **D3.js**: To assist in data-driven transformations and visualizations.
+    - **WebGL**: For rendering interactive 3D graphics.
+    - **Leaflet.js**: To provide additional mapping functionalities if needed.
+    - **Turf.js**: For advanced geospatial processing and data manipulation.
+
 
