@@ -38,5 +38,5 @@ This project is dedicated to mapping and visualizing geostationary satellite dat
 
 We used the `sscsw.py` package to interact with NASA's SSC web services and retrieve satellite data. This package simplifies the process of accessing the API. You can go to this [link](https://sscweb.gsfc.nasa.gov/WebServices/REST/py/GetStarted.html) for instructions on how to install it onto your system. API documentation is also linked above in the "Project Tasks" section.
 
-Jupyter Notebook **SSC_RESTful_API_Collection_notebook.ipynb** was used to call the API and parse the data to gather what we needed. We filtered the data to make sure that we are getting satellite objects no farther from earth than the distance of Earth to the Moon. The extracted data was saved to **sat_locations.csv** that will be used to import into a PostgreSQL database.
+Jupyter Notebook **SSC_RESTful_API_Collection_notebook.ipynb** was used to call the API and parse the data to gather what we needed. We filtered the data to make sure that we are getting satellite objects no farther from earth than the distance of Earth to the Moon. The extracted data was saved to **sat_locations.csv**, which will be used to import the data into a PostgreSQL database.
 
