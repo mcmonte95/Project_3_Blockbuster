@@ -15,8 +15,8 @@ This project is dedicated to mapping and visualizing geostationary satellite dat
    - **Data Source:** 
      - sscsw.py Package for accessing NASA's Satellite Situation Center (SSC) web services: [SSC Web Services](https://sscweb.gsfc.nasa.gov/WebServices/REST/)
    - **sscws.py Documentation:** 
-     - [SSCWS Python Library](https://sscweb.gsfc.nasa.gov/WebServices/REST/py/sscws/index.html)
-     - [SSCWS on PyPI](https://pypi.org/project/sscws/)
+     - [sscws Python Library](https://sscweb.gsfc.nasa.gov/WebServices/REST/py/sscws/index.html)
+     - [sscws on PyPI](https://pypi.org/project/sscws/)
 
 2. **Database Creation:** 
    - Develop a SQL database to store and manage the satellite data effectively.
