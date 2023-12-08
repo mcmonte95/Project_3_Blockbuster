@@ -33,6 +33,3 @@ This project is dedicated to mapping and visualizing geostationary satellite dat
     - **WebGL**: For rendering interactive 3D graphics.
     - **Leaflet.js**: To provide additional mapping functionalities if needed.
     - **Turf.js**: For advanced geospatial processing and data manipulation.
-
-
-
