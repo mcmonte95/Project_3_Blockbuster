@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-# Project_3_Blockbuster
-Project 3 for Data Analytics Boot Camp
-
-Liam Responsibilities:
-
-1. finding the static map for the final map. finding the data we are going to use. 
-
-2. creating the code for the databases and making the code readable for use with Java.
-
-3. creating the hot spot map of all the blockbuster stores/the last blockbuster location.
-=======
 # Geostationary Satellite Visualization Project
 
 ## Group Members
@@ -45,7 +33,3 @@ This project is dedicated to mapping and visualizing geostationary satellite dat
     - **WebGL**: For rendering interactive 3D graphics.
     - **Leaflet.js**: To provide additional mapping functionalities if needed.
     - **Turf.js**: For advanced geospatial processing and data manipulation.
-
-
-
->>>>>>> 02b3ab90f354457b903afbfe50d053685552e7cf
