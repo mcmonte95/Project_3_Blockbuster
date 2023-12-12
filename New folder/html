@@ -1,7 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <style>
     body { margin: 0; }
-
+    
     #time-log {
       position: absolute;
       font-size: 12px;
@@ -14,8 +16,10 @@
       right: 10px;
     }
   </style>
-
+  <!-- the #time-log function may be obsolete to us so could delete down the line -->
+  <!-- this function is how we are going to able to control our map/glode -->
   <script src="//unpkg.com/three"></script>
+  <!-- this is the data where he gets the satelite information from-->
   <script src="//unpkg.com/satellite.js/dist/satellite.min.js"></script>
 
   <script src="//unpkg.com/globe.gl"></script>
@@ -86,3 +90,4 @@
     });
   </script>
 </body>
+</html>
