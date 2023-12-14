@@ -1,11 +1,20 @@
-d3.json("").then((importedData) => {
-    let data = importedData;
+function stationsMap(stationslocation) {
 
-    data.sort(function() {
-        return
-    })
+    let stations = stationslocation.data.stations;
 
-    data = data
+    let stationMarkers = [];
 
-    
-});
+    for (let index = 0; index < stations.length; index++) {
+        let station = stations[index];
+
+        let stationMarker = L.marker([station.lat, station.lon, station.altitude])
+            .bindPopup("<h3>" + station.name + "<h3><h3>: " + station.altitude + "</h3>");
+        
+        stationMarkers.push(stationMarker);
+    }
+
+    createImageBitmap(L.layerGroup(stationMarkers));
+
+}
+
+d3.json("data/data.json").then(importedData);
