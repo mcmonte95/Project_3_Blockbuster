@@ -7,7 +7,7 @@ import pandas as pd
 from flask import Flask, jsonify
 
 # Connect to SQLite database SatelliteData.sqlite'
-engine = create_engine('sqlite:///SatelliteData.sqlite')
+engine = create_engine('sqlite:///Resources/SatelliteData.sqlite') 
 
 # Since only one table, can just run a raw query to get the data using read_sql
 sat_df = pd.read_sql("SELECT * FROM satellites", engine)
@@ -28,7 +28,7 @@ def home():
     """List all available api routes."""
     return (
         f"Available Routes:<br/>"
-        f"/SatLocations<br/>"
+        f"/satLocations<br/>"
         )
 
 @app.route("/satLocations")
