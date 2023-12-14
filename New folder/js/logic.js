@@ -17,4 +17,4 @@ function stationsMap(stationslocation) {
 
 }
 
-d3.json("data/data.json").then(importedData);
+d3.json("http://127.0.0.1:5000/satLocations").then(importedData);

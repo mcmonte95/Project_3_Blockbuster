@@ -3,7 +3,6 @@
 <head>
   <style>
     body { margin: 0; }
-    
     #time-log {
       position: absolute;
       font-size: 12px;
@@ -16,78 +15,63 @@
       right: 10px;
     }
   </style>
-  <!-- the #time-log function may be obsolete to us so could delete down the line -->
-  <!-- this function is how we are going to able to control our map/glode -->
   <script src="//unpkg.com/three"></script>
-  <!-- this is the data where he gets the satelite information from-->
   <script src="//unpkg.com/satellite.js/dist/satellite.min.js"></script>
-
   <script src="//unpkg.com/globe.gl"></script>
-<!--  <script src="../../dist/globe.gl.js"></script>-->
 </head>
-<!-- globe -->
 <body>
   <div id="chart"></div>
   <div id="time-log"></div>
 
   <script>
-    const EARTH_RADIUS_KM = 6371; // km
-    const SAT_SIZE = 100; // km
-    const TIME_STEP = 3 * 1000; // per frame
+    const EARTH_RADIUS_KM = 6371; // Earth's radius in kilometers
+    const SAT_SIZE = 0.1; // Relative size of satellites
+    const TIME_STEP = 60 * 1000; // Time step in milliseconds
 
-    const timeLogger = document.getElementById('time-log');
-    
+    // Initialize the globe
     const world = Globe()
       (document.getElementById('chart'))
       .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
       .objectLat('lat')
       .objectLng('lng')
       .objectAltitude('alt')
-      .objectFacesSurface(false)
+      .objectsTransitionDuration(0)
       .objectLabel('name');
 
-    setTimeout(() => world.pointOfView({ altitude: 3.5 }));
+    // Set the initial point of view
+    setTimeout(() => world.pointOfView({ altitude: 3 }), 0);
 
-    const satGeometry = new THREE.OctahedronGeometry(SAT_SIZE * world.getGlobeRadius() / EARTH_RADIUS_KM / 2, 0);
-    const satMaterial = new THREE.MeshLambertMaterial({ color: 'palegreen', transparent: true, opacity: 0.7 });
+    // Define satellite geometry and material
+    const satGeometry = new THREE.SphereGeometry(SAT_SIZE, 8, 8);
+    const satMaterial = new THREE.MeshBasicMaterial({ color: 'yellow', transparent: true, opacity: 0.8 });
+
+    // Function to create a satellite mesh
     world.objectThreeObject(() => new THREE.Mesh(satGeometry, satMaterial));
 
-    fetch(d3.'../data/sat_locations.csv').then(data) => console.log(data){ 
-      //const tleData = rawData.replace(/\r/g, '')
-    //  //  .split(/\n(?=[^12])/)
-      //  .filter(d => d)
-      //  .map(tle => tle.split('\n'));
-      //const satData = tleData.map(([name, ...tle]) => ({
-      //  satrec: satellite.twoline2satrec(...tle),
-      //  name: name.trim().replace(/^0 /, '')
-      //}))
-      // exclude those that can't be propagated
-      //.filter(d => !!satellite.propagate(d.satrec, new Date()).position)
-      //.slice(0, 2000);
+    // Fetch satellite data
+    fetch('http://127.0.0.1:5000/satLocations')
+      .then(response => response.json())
+      .then(satellites => {
+        // Convert satellite data for globe.gl
+        const satData = satellites.map(sat => ({
+          lat: sat.Latitude,
+          lng: sat.Longitude,
+          alt: sat['Distance from Earth Surface (km)'] / EARTH_RADIUS_KM,
+          name: sat['Satellite Name']
+        }));
 
-      // time ticker
-      //let time = new Date();
-      //(function frameTicker() {
-//        requestAnimationFrame(frameTicker);
+        // Time ticker to update the globe
+        let time = new Date();
+        (function frameTicker() {
+          requestAnimationFrame(frameTicker);
 
-//        time = new Date(+time + TIME_STEP);
-  //      timeLogger.innerText = time.toString();
+          time = new Date(+time + TIME_STEP);
+          document.getElementById('time-log').innerText = time.toISOString();
 
-        // Update satellite positions
-    //    const gmst = satellite.gstime(time);
-      //  satData.forEach(d => {
-        //  const eci = satellite.propagate(d.satrec, time);
-          //if (eci.position) {
-          //  const gdPos = satellite.eciToGeodetic(eci.position, gmst);
-            //d.lat = satellite.radiansToDegrees(gdPos.latitude);
-          //  d.lng = satellite.radiansToDegrees(gdPos.longitude);
-            //d.alt = gdPos.height / EARTH_RADIUS_KM
-//          }
-  //      });
-
-    //    world.objectsData(satData);
-     // })();
-   // };
+          // Update the globe with the satellite data
+          world.objectsData(satData);
+        })();
+      });
   </script>
 </body>
 </html>
