@@ -5,6 +5,7 @@ from sqlalchemy import create_engine, Column, Float, String, MetaData, Table
 import pandas as pd
 
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 # Connect to SQLite database SatelliteData.sqlite'
 engine = create_engine('sqlite:///Resources/SatelliteData.sqlite') 
@@ -17,6 +18,8 @@ sat_df = pd.read_sql("SELECT * FROM satellites", engine)
 # Flask Setup
 #################################################
 app = Flask(__name__)
+CORS(app)
+
 
 
 #################################################
