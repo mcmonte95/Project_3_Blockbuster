@@ -27,7 +27,7 @@ This project is dedicated to mapping and visualizing geostationary satellite dat
 4. **Frontend Development:** 
    - Design and implement the frontend using JavaScript (with WebGL or Three.js for 3D rendering), HTML, and CSS. This includes the development of the 3D interactive globe and the mechanisms to display satellite positions and distances from Earth.
 
-    ### Library for 3D Globe Visualization
+    #### Library for 3D Globe Visualization
     - **globe.gl**: For creating and manipulating the 3D globe. This library is a convenience wrapper around the three-globe plugin, and uses ThreeJS/WebGL for 3D rendering: [Globe.gl](https://github.com/vasturiano/globe.gl)
     
 ## External Data Parsing and Database Creation (Found in the 'Resources' folder)
@@ -46,15 +46,15 @@ We then developed a Flask API called **'Satellite_API.py'** which connects to th
 
 For the front end of our project we needed to use our API inside a javascript file in order to use that data to construct our globe. We rendered the globe with the **globe.gl** package. This is accomplished using the below files:
 
-- API_fetcher.js:
+- **API_fetcher.js:**
   - This javascript file is specifically used to parse our API data correctly in order to extract all our satellite information
 
-- globeInit.js:
+- **globeInit.js:**
   - This javascript file is used to actually create our globe. We actually import functions from 'API_fetcher.js' to use in this file
  
-- satellite_web_app.html:
+- **satellite_web_app.html**:
   - This HTML file is used to render everything in the browser. We import all our javascript files and their dependencies in the right order in order to get our globe to display.
 
- **Important Note:** In order to get all these files to work together and have the web app load, you need to launch an HTTP server to get past the Cross-Origin Resource Sharing (CORS) policy. I suggest navigating to the web app directory and launching a python HTTP server with the command 'python -m http.server'.
+**Important Note:** In order to get all these files to work together and have the web app load, you need to launch an HTTP server to get past the Cross-Origin Resource Sharing (CORS) policy. I suggest navigating to the web app directory and launching a python HTTP server with the command 'python -m http.server'.
 
 
