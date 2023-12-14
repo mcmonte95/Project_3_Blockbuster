@@ -19,7 +19,7 @@ This project is dedicated to mapping and visualizing geostationary satellite dat
      - [sscws on PyPI](https://pypi.org/project/sscws/)
 
 2. **Database Creation:** 
-   - Develop a SQL database to store and manage the satellite data effectively.
+   - Develop a SQLite database to store and manage the satellite data effectively.
 
 3. **API Development:** 
    - Create a Flask API to interface with the SQL database, ensuring smooth data retrieval and handling for the frontend.
@@ -34,9 +34,15 @@ This project is dedicated to mapping and visualizing geostationary satellite dat
     - **Leaflet.js**: To provide additional mapping functionalities if needed.
     - **Turf.js**: For advanced geospatial processing and data manipulation.
   
-## Data Sourcing and Parsing
+## Data Sourcing and Parsing (Found in the 'Resources' folder)
 
 We used the `sscsw.py` package to interact with NASA's SSC web services and retrieve satellite data. This package simplifies the process of accessing the API. You can go to this [link](https://sscweb.gsfc.nasa.gov/WebServices/REST/py/GetStarted.html) for instructions on how to install it into your environment. API documentation is also linked above in the "Project Tasks" section.
 
-Jupyter Notebook **SSC_RESTful_API_Collection_notebook.ipynb** was used to call the API and parse the data to gather what we needed. We filtered the data to make sure that we are getting satellite objects no farther from earth than the distance of Earth to the Moon. The extracted data was saved to **sat_locations.csv**, which will be used to import the data into a PostgreSQL database.
+Jupyter Notebook **'SSC_RESTful_API_Collection_notebook.ipynb'** was used to call the API and parse the data to gather what we needed. This data included satellite name, lat, long, distance from surface, and distance from center. We filtered the data to make sure that we are getting satellite objects no farther from earth than the distance of Earth to the Moon. The extracted data was saved to **'sat_locations.csv'**, which will be used to import the data into a SQLite database.
+
+Jupyter Notebook **'SQLite_DB_create.ipynb'** was used to create our SQLite database **'SatelliteData.sqlite'** by reading **'sat_locations.csv'** into a dataframe, creating an engine to connect to the SQLite database, using metadata to create the correct table schema for our data, and finally using pandas 'to_sql' function to push that data into our database.
+
+## API Developmenet
+
+We then developed a Flask API called **'Satellite_API.py'** which connects to the SQLite database located in the **'Resources'** folder. This has one home route and a route called **'/satLocations'** which returns a jsonified data 
 
