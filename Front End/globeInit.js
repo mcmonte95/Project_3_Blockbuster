@@ -5,7 +5,7 @@ function initializeGlobe(processedData) {
     const gData = processedData.latitudes.map((lat, index) => ({
         lat: lat,
         lng: processedData.longitudes[index],
-        size: processedData.distancesFromEarthSurface[index] / 10000, // Example conversion, adjust as needed
+        size: processedData.distancesFromEarthCenter[index] / 20000, // Example conversion, adjust as needed
         color: 'green'
     }));
 
