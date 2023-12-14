@@ -7,6 +7,8 @@
     
     <!-- Make the favorite icon look like a globe-->
     <link rel="icon" type="image/png" href="https://satellitetracker3d.com/favicon.eae05fc4.ico">
+   
+    
 
     <!-- Add CSS styles here -->
     <style>
@@ -19,6 +21,7 @@
             align-items: center; /* Center vertically */
             overflow-x: hidden; /* Prevent horizontal scroll */
         }
+        
         #globeViz {
             position: relative;
             width: 100%; /* Adjust the size as needed */
@@ -27,14 +30,19 @@
 
         .overlay-content {
             position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 10; /* Ensure it's above other elements */
-            color: white; /* Text color */
-            text-align: left; /* Align text to the left */
-            padding: 10px; /* Add some padding */
-            /* Additional styling as needed */
+            background-color: transparent;
+            top: 20px; /* Offset from the top */
+            left: 20px; /* Offset from the left */
+            z-index: 10;
+            color: white;
+            text-align: left;
+            padding: 10px;
+            border: 2px solid #15c1ce;
+            
         }
+    
+       
+    
     </style>
     
 
@@ -46,10 +54,13 @@
 <body>
     
     
+
     <div class="overlay-content">
         
-        <h2>Satellite Visualization Web Application</h2>
-        
+        <h4>Satellite Data Summary</h4>
+        <p id="sat-count">Number of Satellites: </p>
+        <p id="avg-height">Average Satellite Distance from Surface (km): </p>
+    
     </div>
       
     
@@ -59,9 +70,13 @@
     <!-- Import globe.gl and three.js dependencies-->
     <script src="//unpkg.com/three"></script>
     <script src="//unpkg.com/globe.gl"></script>
+    
+    
 
-    <!-- Import globeInit.js as a module -->
+
+    <!-- Import globeInit.js and TableGenerator.js as modules -->
     <script type="module" src="Front End/globeInit.js"></script>
+    <script type="module" src="Front End/TableGenerator.js"></script>
 
 
 
