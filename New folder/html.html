@@ -52,42 +52,42 @@
     const satMaterial = new THREE.MeshLambertMaterial({ color: 'palegreen', transparent: true, opacity: 0.7 });
     world.objectThreeObject(() => new THREE.Mesh(satGeometry, satMaterial));
 
-    fetch(d3.'../data/sat_locations.csv').then(data) => console.log(data){ 
-      //const tleData = rawData.replace(/\r/g, '')
-    //  //  .split(/\n(?=[^12])/)
-      //  .filter(d => d)
-      //  .map(tle => tle.split('\n'));
-      //const satData = tleData.map(([name, ...tle]) => ({
-      //  satrec: satellite.twoline2satrec(...tle),
-      //  name: name.trim().replace(/^0 /, '')
-      //}))
+    fetch("http://127.0.0.1:5000/satLocations").then(r => r.text()).then(rawData => { 
+      const tleData = rawData.replace(/\r/g, '')
+      .split(/\n(?=[^12])/)
+      .filter(d => d)
+      .map(tle => tle.split('\n'));
+      const satData = tleData.map(([name, ...tle]) => ({
+        satrec: satellite.twoline2satrec(...tle),
+        name: name.trim().replace(/^0 /, '')
+      }))
       // exclude those that can't be propagated
-      //.filter(d => !!satellite.propagate(d.satrec, new Date()).position)
-      //.slice(0, 2000);
+      .filter(d => !!satellite.propagate(d.satrec, new Date()).position)
+      .slice(0, 2000);
 
-      // time ticker
-      //let time = new Date();
-      //(function frameTicker() {
-//        requestAnimationFrame(frameTicker);
+      //time ticker
+      let time = new Date();
+      (function frameTicker() {
+        requestAnimationFrame(frameTicker);
 
-//        time = new Date(+time + TIME_STEP);
-  //      timeLogger.innerText = time.toString();
+        time = new Date(+time + TIME_STEP);
+        timeLogger.innerText = time.toString();
 
-        // Update satellite positions
-    //    const gmst = satellite.gstime(time);
-      //  satData.forEach(d => {
-        //  const eci = satellite.propagate(d.satrec, time);
-          //if (eci.position) {
-          //  const gdPos = satellite.eciToGeodetic(eci.position, gmst);
-            //d.lat = satellite.radiansToDegrees(gdPos.latitude);
-          //  d.lng = satellite.radiansToDegrees(gdPos.longitude);
-            //d.alt = gdPos.height / EARTH_RADIUS_KM
-//          }
-  //      });
+        //Update satellite positions
+        const gmst = satellite.gstime(time);
+        satData.forEach(d => {
+          const eci = satellite.propagate(d.satrec, time);
+          if (eci.position) {
+            const gdPos = satellite.eciToGeodetic(eci.position, gmst);
+            d.lat = satellite.radiansToDegrees(gdPos.latitude);
+            d.lng = satellite.radiansToDegrees(gdPos.longitude);
+            d.alt = gdPos.height / EARTH_RADIUS_KM
+          }
+        });
 
-    //    world.objectsData(satData);
-     // })();
-   // };
+        world.objectsData(satData);
+      })();
+    });
   </script>
 </body>
 </html>
