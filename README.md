@@ -51,10 +51,25 @@ We then extracted the data from our Flask API endpoint and used that data to ren
 
 - **globeInit.js:**
   - This javascript file is used to actually create our globe. We actually import functions from 'API_fetcher.js' to use in this file
+
+-  **TableGenerator.js:**
+  - This javascript file is used call the API and generate a short summary statistics table.
  
 - **satellite_web_app.html**:
   - This HTML file is used to render everything in the browser. We import all our javascript files and their dependencies in order to get our globe to display correctly.
 
 **Important Note:** In order to get all these files to work together and have the web app load, you need to launch an HTTP server to get past the Cross-Origin Resource Sharing (CORS) policy. I suggest navigating to the web app directory and launching a python HTTP server with the command 'python -m http.server'.
 
+## App Launch Instructions
 
+1. Download the complete repository
+2. Install all dependencies
+3. Open up two terminals and navigate both to the repository main directory
+4. Use one terminal to launch the API with command "python Satellite_API.py" and use the other to launch the HTTP server using the command "python -m http.server"
+5. Once both are running, navigate to "http://localhost:8000/satellite_web_app.html" as this will be where the app is running.
+
+## References (Specific code snippets referenced to help build the Globe object)
+
+1. https://github.com/vasturiano/globe.gl/blob/master/example/basic/index.html
+2. https://github.com/vasturiano/globe.gl/blob/master/example/satellites/index.html
+3. https://github.com/vasturiano/globe.gl/blob/master/example/moon-landing-sites/index.html
