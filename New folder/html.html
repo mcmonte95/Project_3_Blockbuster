@@ -1,7 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <style>
     body { margin: 0; }
-
+    
     #time-log {
       position: absolute;
       font-size: 12px;
@@ -14,14 +16,16 @@
       right: 10px;
     }
   </style>
-
+  <!-- the #time-log function may be obsolete to us so could delete down the line -->
+  <!-- this function is how we are going to able to control our map/glode -->
   <script src="//unpkg.com/three"></script>
+  <!-- this is the data where he gets the satelite information from-->
   <script src="//unpkg.com/satellite.js/dist/satellite.min.js"></script>
 
   <script src="//unpkg.com/globe.gl"></script>
 <!--  <script src="../../dist/globe.gl.js"></script>-->
 </head>
-
+<!-- globe -->
 <body>
   <div id="chart"></div>
   <div id="time-log"></div>
@@ -32,7 +36,7 @@
     const TIME_STEP = 3 * 1000; // per frame
 
     const timeLogger = document.getElementById('time-log');
-
+    
     const world = Globe()
       (document.getElementById('chart'))
       .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
@@ -48,41 +52,42 @@
     const satMaterial = new THREE.MeshLambertMaterial({ color: 'palegreen', transparent: true, opacity: 0.7 });
     world.objectThreeObject(() => new THREE.Mesh(satGeometry, satMaterial));
 
-    fetch('../datasets/space-track-leo.txt').then(r => r.text()).then(rawData => {
-      const tleData = rawData.replace(/\r/g, '')
-        .split(/\n(?=[^12])/)
-        .filter(d => d)
-        .map(tle => tle.split('\n'));
-      const satData = tleData.map(([name, ...tle]) => ({
-        satrec: satellite.twoline2satrec(...tle),
-        name: name.trim().replace(/^0 /, '')
-      }))
+    fetch(d3.'../data/sat_locations.csv').then(data) => console.log(data){ 
+      //const tleData = rawData.replace(/\r/g, '')
+    //  //  .split(/\n(?=[^12])/)
+      //  .filter(d => d)
+      //  .map(tle => tle.split('\n'));
+      //const satData = tleData.map(([name, ...tle]) => ({
+      //  satrec: satellite.twoline2satrec(...tle),
+      //  name: name.trim().replace(/^0 /, '')
+      //}))
       // exclude those that can't be propagated
-      .filter(d => !!satellite.propagate(d.satrec, new Date()).position)
-      .slice(0, 2000);
+      //.filter(d => !!satellite.propagate(d.satrec, new Date()).position)
+      //.slice(0, 2000);
 
       // time ticker
-      let time = new Date();
-      (function frameTicker() {
-        requestAnimationFrame(frameTicker);
+      //let time = new Date();
+      //(function frameTicker() {
+//        requestAnimationFrame(frameTicker);
 
-        time = new Date(+time + TIME_STEP);
-        timeLogger.innerText = time.toString();
+//        time = new Date(+time + TIME_STEP);
+  //      timeLogger.innerText = time.toString();
 
         // Update satellite positions
-        const gmst = satellite.gstime(time);
-        satData.forEach(d => {
-          const eci = satellite.propagate(d.satrec, time);
-          if (eci.position) {
-            const gdPos = satellite.eciToGeodetic(eci.position, gmst);
-            d.lat = satellite.radiansToDegrees(gdPos.latitude);
-            d.lng = satellite.radiansToDegrees(gdPos.longitude);
-            d.alt = gdPos.height / EARTH_RADIUS_KM
-          }
-        });
+    //    const gmst = satellite.gstime(time);
+      //  satData.forEach(d => {
+        //  const eci = satellite.propagate(d.satrec, time);
+          //if (eci.position) {
+          //  const gdPos = satellite.eciToGeodetic(eci.position, gmst);
+            //d.lat = satellite.radiansToDegrees(gdPos.latitude);
+          //  d.lng = satellite.radiansToDegrees(gdPos.longitude);
+            //d.alt = gdPos.height / EARTH_RADIUS_KM
+//          }
+  //      });
 
-        world.objectsData(satData);
-      })();
-    });
+    //    world.objectsData(satData);
+     // })();
+   // };
   </script>
 </body>
+</html>
