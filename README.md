@@ -42,7 +42,7 @@ Jupyter Notebook **'SQLite_DB_create.ipynb'** was used to create our SQLite data
 
 We then developed a Flask API called **'Satellite_API.py'** which connects to the SQLite database located in the **'Resources'** folder. This has one home route and a route called **'/satLocations'** which returns a jsonified dataframe of all the satellite data that we can now call in our javascript front end. 
 
-## Front End Development (Javascript files found in the'Front End' folder)
+## Front End Development (Javascript files found in the 'Front End' folder)
 
 We then extracted the data from our Flask API endpoint and used that data to render the globe with the **globe.gl** package. This is accomplished using the below files:
 
