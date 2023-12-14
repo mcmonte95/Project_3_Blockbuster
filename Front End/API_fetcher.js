@@ -14,7 +14,7 @@ export function callApi() {
         });
 }
 
-// Function to process the data using map
+// Function to process the data using mapping
 export function processData(jsonData) {
     return {
         distancesFromEarthCenter: jsonData.map(item => item["Distance from Earth Center (km)"]),
@@ -25,7 +25,7 @@ export function processData(jsonData) {
     };
 }
 
-// Function to log the data to the console for troubleshooting
+// Function to log the data to the console for troubleshooting and to confirm each array was created correctly
 export function logData(data) {
     console.log("Distances from Earth Center (km):", data.distancesFromEarthCenter);
     console.log("Distances from Earth Surface (km):", data.distancesFromEarthSurface);
