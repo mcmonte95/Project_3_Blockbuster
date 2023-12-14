@@ -52,7 +52,7 @@ We then extracted the data from our Flask API endpoint and used that data to ren
 - **globeInit.js:**
   - This javascript file is used to actually create our globe. We actually import functions from 'API_fetcher.js' to use in this file
 
--  **TableGenerator.js:**
+- **TableGenerator.js:**
   - This javascript file is used call the API and generate a short summary statistics table.
  
 - **satellite_web_app.html**:
@@ -68,7 +68,15 @@ We then extracted the data from our Flask API endpoint and used that data to ren
 4. Use one terminal to launch the API with command "python Satellite_API.py" and use the other to launch the HTTP server using the command "python -m http.server"
 5. Once both are running, navigate to "http://localhost:8000/satellite_web_app.html" as this will be where the app is running.
 
-## References (Specific code snippets referenced to help build the Globe object)
+## Documentation References
+
+1. https://sscweb.gsfc.nasa.gov/WebServices/REST/
+2. https://sscweb.gsfc.nasa.gov/WebServices/REST/py/sscws/index.html
+3. https://pypi.org/project/sscws/
+4. https://github.com/vasturiano/globe.gl
+5. https://sscweb.gsfc.nasa.gov/WebServices/REST/py/GetStarted.html
+
+## Code References (Specific code snippets referenced to help build the Globe object)
 
 1. https://github.com/vasturiano/globe.gl/blob/master/example/basic/index.html
 2. https://github.com/vasturiano/globe.gl/blob/master/example/satellites/index.html
