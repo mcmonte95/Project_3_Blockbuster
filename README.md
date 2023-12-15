@@ -1,4 +1,4 @@
-# Geostationary Satellite Visualization Project
+# Satellite Visualization Project
 
 ## Group Members
 - Michael Chiaramonte
@@ -7,7 +7,7 @@
 - Eric Green
 
 ## Description
-This project is dedicated to mapping and visualizing geostationary satellite data, leveraging NASA's API. Our objective is to create an interactive 3D globe visualization that dynamically displays the positions of geostationary satellites and their respective distances from Earth. The visualization will allow users to see the spatial distribution of these satellites, offering insights into global satellite coverage and space utilization.
+This project is dedicated to mapping and visualizing satellite data, leveraging NASA's API. Our objective is to create an interactive 3D globe visualization that dynamically displays the positions of geostationary satellites and their respective distances from Earth. The visualization will allow users to see the spatial distribution of these satellites, offering insights into global satellite coverage and space utilization.
 
 ## Project Tasks
 1. **External Data Parsing:**
