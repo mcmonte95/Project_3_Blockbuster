@@ -53,7 +53,7 @@ We then extracted the data from our Flask API endpoint and used that data to ren
   - This javascript file is used to actually create our globe. We actually import functions from 'API_fetcher.js' to use in this file
 
 - **TableGenerator.js:**
-  - This javascript file is used call the API and generate a short summary statistics table.
+  - This javascript file is used to call the API and generate a short summary statistics table.
  
 - **satellite_web_app.html**:
   - This HTML file is used to render everything in the browser. We import all our javascript files and their dependencies in order to get our globe to display correctly.
