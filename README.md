@@ -28,7 +28,7 @@ This project is dedicated to mapping and visualizing satellite data, leveraging 
    - Design and implement the frontend using JavaScript (with WebGL or Three.js for 3D rendering), HTML, and CSS. This includes the development of the 3D interactive globe and the mechanisms to display satellite positions and distances from Earth.
 
     #### Library for 3D Globe Visualization
-    - **globe.gl**: For creating and manipulating the 3D globe. This library is a convenience wrapper around the three-globe plugin, and uses ThreeJS/WebGL for 3D rendering: [Globe.gl](https://github.com/vasturiano/globe.gl)
+    - **globe.gl**: For creating and manipulating the 3D globe. This library is a convenience wrapper around the three-globe plugin, and uses ThreeJS/WebGL for 3D rendering: [globe.gl](https://github.com/vasturiano/globe.gl)
     
 ## External Data Parsing and Database Creation (Found in the 'Resources' folder)
 
