@@ -68,7 +68,7 @@ We then extracted the data from our Flask API endpoint and used that data to ren
 4. Use one terminal to launch the API with command "python Satellite_API.py" and use the other to launch the HTTP server using the command "python -m http.server"
 5. Once both are running, navigate to "http://localhost:8000/satellite_web_app.html" as this will be where the app is running.
 
-## Documentation References
+## References
 
 1. https://sscweb.gsfc.nasa.gov/WebServices/REST/
 2. https://sscweb.gsfc.nasa.gov/WebServices/REST/py/sscws/index.html
